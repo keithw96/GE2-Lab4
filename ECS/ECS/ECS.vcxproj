@@ -78,12 +78,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SDL_SDK)/include; $(SDL_IMAGE_SDK)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SDL_IMAGE_SDK)\include;$(SDL_SDK)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>$(SDL_SDK)/lib/x86; $(SDL_IMAGE_SDK)/lib/x86;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SDL_IMAGE_SDK)\lib\x86;$(SDL_SDK)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -105,11 +105,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SDL_IMAGE_SDK)\include;$(SDL_SDK)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SDL_IMAGE_SDK)\lib\x86;$(SDL_SDK)\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -128,17 +131,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AISystem.cpp" />
+    <ClCompile Include="ControlSystem.cpp" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HealthComponent.cpp" />
+    <ClCompile Include="HealthSystem.cpp" />
+    <ClCompile Include="InputComponent.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PositionComponent.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AISystem.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="ControlSystem.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="HealthSystem.h" />
     <ClInclude Include="InputComponent.h" />
-    <ClInclude Include="InputSystem.h" />
     <ClInclude Include="PositionComponent.h" />
-    <ClInclude Include="PositionSystem.h" />
+    <ClInclude Include="RenderSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

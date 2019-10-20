@@ -6,11 +6,13 @@ class Entity
 {
 	int id;
 public:
-	Entity() {}
-	void addComponent(Component c) { components.push_back(c); }
-	void removeComponent(Component c) { /* TBI */ }
-	
+	Entity();
+	void addComponent(Component c);
+	void removeComponent(Component c);
+	void setTag(std::string tag);
+	std::string getTag();
 
 private:
 	std::vector<Component> components;
+	std::string m_tag;
 };
